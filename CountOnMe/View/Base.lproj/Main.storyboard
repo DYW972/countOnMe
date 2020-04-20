@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqK-jh-KKu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eqK-jh-KKu">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,25 +12,25 @@
             <objects>
                 <viewController id="eqK-jh-KKu" customClass="ViewController" customModule="CountOnMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tQO-Y2-VWE"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fhl-dE-gDl"/>
+                        <viewControllerLayoutGuide type="top" id="Dkl-0c-gDs"/>
+                        <viewControllerLayoutGuide type="bottom" id="q8s-4q-BCz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eIh-hr-C95">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-yn-nBB">
-                                <rect key="frame" x="20" y="44" width="374" height="302"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-yn-nBB">
+                                <rect key="frame" x="20" y="44" width="374" height="299"/>
                                 <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="ZDd-Az-bP1">
-                                <rect key="frame" x="20" y="366" width="374" height="408"/>
+                                <rect key="frame" x="20" y="363" width="374" height="411"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="4bK-eZ-a2F">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="306"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="411"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elo-YZ-bhm">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
@@ -73,6 +72,20 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="tappedNumberButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="EDT-YK-ZJG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTc-YO-HbS" userLabel="AC">
+                                                <rect key="frame" x="0.0" y="315" width="96" height="96"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="sTc-YO-HbS" secondAttribute="height" multiplier="1:1" id="hK7-80-Sax"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <state key="normal" title="AC">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedResetButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="yXn-0V-zPJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -139,7 +152,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="O9R-fI-eyu">
-                                        <rect key="frame" x="278" y="0.0" width="96" height="306"/>
+                                        <rect key="frame" x="278" y="0.0" width="96" height="411"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-X9-C0f">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
@@ -183,6 +196,20 @@
                                                     <action selector="tappedNumberButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="JcN-Wz-aAf"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRE-kM-H75">
+                                                <rect key="frame" x="0.0" y="315" width="96" height="96"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="oRE-kM-H75" secondAttribute="height" multiplier="1:1" id="tkw-qJ-6W3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <state key="normal" title="Del">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedDelButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="xNZ-gB-hVD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -201,7 +228,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="qcM-0D-Bmr"/>
+                                            <action selector="tappedOperatorButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="Apy-Qj-gPk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqH-9F-fDd">
@@ -215,7 +242,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedSubstractionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="eCV-lD-Kd8"/>
+                                            <action selector="tappedOperatorButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="Dgf-22-ObX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSb-Zn-8Pn">
@@ -228,6 +255,9 @@
                                         <state key="normal" title="✗">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedOperatorButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="tWT-qO-O4O"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnR-cx-kRg">
                                         <rect key="frame" x="228" y="0.0" width="72" height="72"/>
@@ -239,10 +269,13 @@
                                         <state key="normal" title="÷">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedOperatorButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="TH3-vv-045"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf5-f0-KAy">
                                         <rect key="frame" x="304" y="0.0" width="72" height="72"/>
-                                        <color key="backgroundColor" red="1" green="0.57457399369999995" blue="0.0019781978339999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lf5-f0-KAy" secondAttribute="height" multiplier="1:1" id="UmB-SY-2lf"/>
                                         </constraints>
@@ -259,22 +292,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.87536688539999996" green="0.84808511389999996" blue="0.83804947389999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AWJ-Vl-uau" firstAttribute="trailing" secondItem="VJT-xt-fUU" secondAttribute="trailing" constant="19" id="0s0-kY-Syt"/>
+                            <constraint firstAttribute="trailing" secondItem="VJT-xt-fUU" secondAttribute="trailing" constant="19" id="0s0-kY-Syt"/>
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="trailing" secondItem="ZDd-Az-bP1" secondAttribute="trailing" id="51q-ib-fPm"/>
                             <constraint firstItem="ZDd-Az-bP1" firstAttribute="top" secondItem="T2H-yn-nBB" secondAttribute="bottom" constant="20" id="5P8-b6-IK4"/>
-                            <constraint firstItem="Fhl-dE-gDl" firstAttribute="top" secondItem="VJT-xt-fUU" secondAttribute="bottom" constant="8" id="7mD-0r-oTw"/>
-                            <constraint firstItem="ZDd-Az-bP1" firstAttribute="leading" secondItem="AWJ-Vl-uau" secondAttribute="leading" constant="20" id="BbM-ve-23Z"/>
-                            <constraint firstItem="T2H-yn-nBB" firstAttribute="top" secondItem="AWJ-Vl-uau" secondAttribute="top" id="GPj-39-zaZ"/>
+                            <constraint firstItem="q8s-4q-BCz" firstAttribute="top" secondItem="VJT-xt-fUU" secondAttribute="bottom" constant="8" id="7mD-0r-oTw"/>
+                            <constraint firstItem="ZDd-Az-bP1" firstAttribute="leading" secondItem="eIh-hr-C95" secondAttribute="leading" constant="20" id="BbM-ve-23Z"/>
+                            <constraint firstItem="T2H-yn-nBB" firstAttribute="top" secondItem="Dkl-0c-gDs" secondAttribute="bottom" id="GPj-39-zaZ"/>
                             <constraint firstItem="VJT-xt-fUU" firstAttribute="top" secondItem="ZDd-Az-bP1" secondAttribute="bottom" constant="8" id="Iua-aO-2Ow"/>
-                            <constraint firstItem="AWJ-Vl-uau" firstAttribute="trailing" secondItem="ZDd-Az-bP1" secondAttribute="trailing" constant="20" id="O6w-NA-lIy"/>
-                            <constraint firstItem="VJT-xt-fUU" firstAttribute="leading" secondItem="AWJ-Vl-uau" secondAttribute="leading" constant="19" id="ukm-ey-fMX"/>
+                            <constraint firstAttribute="trailing" secondItem="ZDd-Az-bP1" secondAttribute="trailing" constant="20" id="O6w-NA-lIy"/>
+                            <constraint firstItem="VJT-xt-fUU" firstAttribute="leading" secondItem="eIh-hr-C95" secondAttribute="leading" constant="19" id="ukm-ey-fMX"/>
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="leading" secondItem="ZDd-Az-bP1" secondAttribute="leading" id="zHO-oP-wf2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="AWJ-Vl-uau"/>
                     </view>
                     <connections>
                         <outlet property="textView" destination="T2H-yn-nBB" id="yqe-Yo-Sag"/>
-                        <outletCollection property="numberButtons" destination="elo-YZ-bhm" collectionClass="NSMutableArray" id="Vpy-wz-Pn4"/>
                         <outletCollection property="numberButtons" destination="qPd-Vc-hgY" collectionClass="NSMutableArray" id="OK6-Yq-O6O"/>
                         <outletCollection property="numberButtons" destination="osJ-X9-C0f" collectionClass="NSMutableArray" id="9kw-Vh-hxo"/>
                         <outletCollection property="numberButtons" destination="HTe-B5-RT7" collectionClass="NSMutableArray" id="8rb-N6-w4G"/>
@@ -284,6 +315,7 @@
                         <outletCollection property="numberButtons" destination="qTo-Mh-eTx" collectionClass="NSMutableArray" id="ETc-iM-IlP"/>
                         <outletCollection property="numberButtons" destination="DZh-k3-mSb" collectionClass="NSMutableArray" id="evW-6e-Wy9"/>
                         <outletCollection property="numberButtons" destination="mxH-Vf-txo" collectionClass="NSMutableArray" id="y86-Wl-yMa"/>
+                        <outletCollection property="numberButtons" destination="elo-YZ-bhm" collectionClass="NSMutableArray" id="Yqm-YC-aid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-3c-sJZ" sceneMemberID="firstResponder"/>
