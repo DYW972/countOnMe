@@ -58,14 +58,6 @@ class ViewController: UIViewController {
         print(result)
         textView.text.append(" = \(result.first!)")
     }
-    // MARK: Methods
-    func showAlert(with message: String) {
-        let alertVC = UIAlertController(title: "Zéro!",
-                                        message: message,
-                                        preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
-    }
     /// Tap AC button
     @IBAction func tappedResetButton(_ sender: UIButton) {
         calculator.reset()
@@ -75,5 +67,13 @@ class ViewController: UIViewController {
     @IBAction func tappedDelButton(_ sender: UIButton) {
         calculator.removeLastElement()
         textView.text = calculator.screenText
+    }
+    // MARK: Methods
+    func showAlert(with message: String) {
+        let alertVC = UIAlertController(title: "Erreur :",
+                                        message: message,
+                                        preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
