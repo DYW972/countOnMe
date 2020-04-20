@@ -11,6 +11,11 @@ import Foundation
 class Calculator {
     // MARK: - Properties
     var screenText = String()
+    var total = 0 {
+        didSet {
+            screenText.append(" = \(total)")
+        }
+    }
     var elements: [String] {
        return screenText.split(separator: " ").map { "\($0)" }
     }
@@ -18,7 +23,7 @@ class Calculator {
         checkValidity()
     }
     var expressionHaveResult: Bool {
-       return screenText.firstIndex(of: "=") != nil
+        return screenText.firstIndex(of: "=") != nil
     }
     var expressionIsCorrect: Bool {
       checkValidity()
@@ -39,8 +44,41 @@ class Calculator {
     func checkValidity() -> Bool {
       return elements.last != "+" && elements.last != "-" && elements.last != "✗" && elements.last != "÷"
     }
+    /// Add number for calculation
+    func addNumberForCalculation(number: String) {
+        print(expressionHaveResult)
+        print(elements)
+        print(screenText)
+        if expressionHaveResult {
+            screenText = ""
+        }
+        if screenText == "0" {
+            screenText = number
+        } else {
+            screenText.append("\(number)")
+        }
+    }
+    /// Add operator for calculation
+    func addOpertorForCalculation(operator symbol: String) -> Bool {
+        if canAddOperator {
+            screenText.append(" \(symbol) ")
+            return true
+        }
+        return false
+    }
     /// Make the calculation
-    func calculator() -> [String] {
+    func makeCalculation() -> (validity: Bool, message: String) {
+        if !expressionIsCorrect {
+            return (false, "Veuillez entrer une expression correcte.")
+        }
+        if !expressionHaveEnoughElement {
+            return (false, "Veuillez démarrer un nouveau calcul.")
+        }
+        if expressionHaveResult {
+            screenText = elements.last!
+            return (true, "\(elements.last!)")
+        }
+        print("Here : \(elements)")
         /// - parameters operationsToReduce: Create local copy of operations
         var operationsToReduce = elements
         /// Iterate over operations while an operand still here
@@ -59,7 +97,8 @@ class Calculator {
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(result)", at: 0)
         }
-        return operationsToReduce
+        screenText.append(" = \(operationsToReduce.first!)")
+        return (true, "")
     }
     /// Remove last element
     func removeLastElement() {
