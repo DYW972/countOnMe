@@ -19,44 +19,32 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     // MARK: - View actions
-    /// Tap number
+    /// Tap numbers buttons
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else {
             return
         }
-        if calculator.expressionHaveResult {
-            textView.text = ""
-        }
-        if calculator.screenText == "0" {
-            calculator.screenText = numberText
-        } else {
-            calculator.screenText.append(numberText)
-        }
+        calculator.addNumberForCalculation(number: numberText)
         textView.text = calculator.screenText
     }
-    /// Tap operator
+    /// Tap operators buttons
     @IBAction func tappedOperatorButton(_ sender: UIButton) {
         guard let operatorText = sender.title(for: .normal) else {
             return
         }
-        if calculator.canAddOperator {
-            calculator.screenText.append(" \(operatorText) ")
-            textView.text = calculator.screenText
-        } else {
-            showAlert(with: "Un operateur est déja mis !")
+        guard calculator.addOpertorForCalculation(operator: operatorText) else {
+            return showAlert(with: "Vous avez déjà ajouté un opérateur.")
         }
+        textView.text = calculator.screenText
     }
     /// Tap equal button
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        guard calculator.expressionIsCorrect else {
-            return showAlert(with: "Entrez une expression correcte !")
+        let resultStatus = calculator.makeCalculation()
+        if resultStatus.validity {
+            textView.text = calculator.screenText
+        } else {
+            return showAlert(with: resultStatus.message)
         }
-        guard calculator.expressionHaveEnoughElement else {
-         return showAlert(with: "Démarrez un nouveau calcul !")
-        }
-        let result = calculator.calculator()
-        print(result)
-        textView.text.append(" = \(result.first!)")
     }
     /// Tap AC button
     @IBAction func tappedResetButton(_ sender: UIButton) {
