@@ -14,10 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var numberButtons: [UIButton]!
     // MARK: - Properties
     lazy var calculator = Calculator(screenText: textView.text)
-    // View Life cycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
     // MARK: - View actions
     /// Tap numbers buttons
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -37,6 +34,7 @@ class ViewController: UIViewController {
         }
         textView.text = calculator.screenText
     }
+
     /// Tap equal button
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         let resultStatus = calculator.makeCalculation()
@@ -46,16 +44,19 @@ class ViewController: UIViewController {
             return showAlert(with: resultStatus.message)
         }
     }
+
     /// Tap AC button
     @IBAction func tappedResetButton(_ sender: UIButton) {
         calculator.reset()
         textView.text = calculator.screenText
     }
+
     /// Tap Del button
     @IBAction func tappedDelButton(_ sender: UIButton) {
         calculator.removeLastElement()
         textView.text = calculator.screenText
     }
+
     // MARK: Methods
     func showAlert(with message: String) {
         let alertVC = UIAlertController(title: "Erreur :",
