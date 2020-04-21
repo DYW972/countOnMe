@@ -11,11 +11,6 @@ import Foundation
 class Calculator {
     // MARK: - Properties
     var screenText = String()
-    var total = 0 {
-        didSet {
-            screenText.append(" = \(total)")
-        }
-    }
     var elements: [String] {
        return screenText.split(separator: " ").map { "\($0)" }
     }
@@ -23,7 +18,7 @@ class Calculator {
         checkValidity()
     }
     var expressionHaveResult: Bool {
-        return screenText.firstIndex(of: "=") != nil
+        return screenText.contains("=")
     }
     var expressionIsCorrect: Bool {
       checkValidity()
@@ -46,9 +41,6 @@ class Calculator {
     }
     /// Add number for calculation
     func addNumberForCalculation(number: String) {
-        print(expressionHaveResult)
-        print(elements)
-        print(screenText)
         if expressionHaveResult {
             screenText = ""
         }
@@ -60,7 +52,11 @@ class Calculator {
     }
     /// Add operator for calculation
     func addOpertorForCalculation(operator symbol: String) -> Bool {
+        print(elements)
         if canAddOperator {
+            if expressionHaveResult {
+                screenText = elements.last!
+            }
             screenText.append(" \(symbol) ")
             return true
         }
@@ -105,8 +101,15 @@ class Calculator {
         if screenText.last == " " {
             let characterToTrim: Set<Character> = [" "]
             screenText.removeAll(where: {characterToTrim.contains($0)})
+        } else if screenText == "0" {
+            return
         }
+
         screenText.remove(at: screenText.index(before: screenText.endIndex))
+
+        if screenText.isEmpty {
+            screenText = "0"
+        }
     }
     /// Reset calculator
     func reset() {
