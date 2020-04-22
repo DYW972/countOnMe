@@ -90,4 +90,9 @@ class CalculatorTestCase: XCTestCase {
         calculator.removeLastElement()
         XCTAssertTrue(calculator.screenText == copyScreenText)
     }
+
+    func testGivenScreenTextIsNotEmpty_WhenTappedResetButton_ThenScreenTextShouldBeEqualToZero() {
+        calculator.reset()
+        XCTAssertTrue(calculator.screenText == "0")
+    }
 }
