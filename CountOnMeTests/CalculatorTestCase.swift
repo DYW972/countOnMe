@@ -84,14 +84,18 @@ class CalculatorTestCase: XCTestCase {
         XCTAssertTrue(calculator.screenText.contains(" = \(result)"))
     }
 
-    func testGivenScreenTextIsNotEmpty_WhenTappedDeleteButton_ThenScreenTextRemoveLastElement() {
-        var copyScreenText = calculator.screenText
-        copyScreenText.remove(at: copyScreenText.index(before: copyScreenText.endIndex))
+    func testGivenResultIsDisplayed_WhenTappedDeleteButton_ThenScreenTextRemoveResultAndLastCalculationElement() {
         calculator.removeLastElement()
-        XCTAssertTrue(calculator.screenText == copyScreenText)
+        XCTAssertTrue(calculator.screenText == "1 + ")
     }
 
-    func testGivenScreenTextIsNotEmpty_WhenTappedResetButton_ThenScreenTextShouldBeEqualToZero() {
+    func testGivenScreenTextDisplaysZero_WhenTappedDeleteButton_ThenScreenTextStillDisplaysZero() {
+        calculator.screenText = "0"
+        calculator.removeLastElement()
+        XCTAssertTrue(calculator.screenText == "0")
+    }
+
+    func testGivenResultIsDisplayed_WhenTappedResetButton_ThenScreenTextShouldBeEqualToZero() {
         calculator.reset()
         XCTAssertTrue(calculator.screenText == "0")
     }
