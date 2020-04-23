@@ -26,6 +26,7 @@ class Calculator {
     var expressionHaveEnoughElement: Bool {
         return elements.count >= 3
     }
+
     // MARK: - Init
     init(screenText: String) {
         if screenText == "0" {
@@ -34,11 +35,13 @@ class Calculator {
             self.screenText = screenText
         }
     }
+
     // MARK: - Methods
     /// Check if last element is an operator when equal button is pressed
     func checkValidity() -> Bool {
       return elements.last != "+" && elements.last != "-" && elements.last != "✗" && elements.last != "÷"
     }
+
     /// Add number for calculation
     func addNumberForCalculation(number: String) {
         if expressionHaveResult {
@@ -50,6 +53,7 @@ class Calculator {
             screenText.append("\(number)")
         }
     }
+
     /// Add operator for calculation
     func addOpertorForCalculation(operator symbol: String) -> Bool {
         print(elements)
@@ -62,6 +66,7 @@ class Calculator {
         }
         return false
     }
+
     /// Make the calculation
     func makeCalculation() -> (validity: Bool, message: String) {
         if !expressionIsCorrect {
@@ -74,7 +79,6 @@ class Calculator {
             screenText = elements.last!
             return (true, "\(elements.last!)")
         }
-        print("Here : \(elements)")
         /// - parameters operationsToReduce: Create local copy of operations
         var operationsToReduce = elements
         /// Iterate over operations while an operand still here
@@ -96,13 +100,25 @@ class Calculator {
         screenText.append(" = \(operationsToReduce.first!)")
         return (true, "")
     }
+
     /// Remove last element
     func removeLastElement() {
-        if screenText.last == " " {
-            let characterToTrim: Set<Character> = [" "]
-            screenText.removeAll(where: {characterToTrim.contains($0)})
-        } else if screenText == "0" {
+        if screenText == "0" {
             return
+        }
+
+        if expressionHaveResult {
+            if let firstCharacterToTrim = screenText.firstIndex(of: "=") {
+                for character in screenText {
+                    if let index = screenText.lastIndex(of: character) {
+                        if index >= screenText.index(before: firstCharacterToTrim) {
+                            screenText.remove(at: index)
+                        }
+                    }
+                }
+            } else {
+                screenText = "0"
+            }
         }
 
         screenText.remove(at: screenText.index(before: screenText.endIndex))
@@ -111,6 +127,7 @@ class Calculator {
             screenText = "0"
         }
     }
+
     /// Reset calculator
     func reset() {
         screenText = "0"
