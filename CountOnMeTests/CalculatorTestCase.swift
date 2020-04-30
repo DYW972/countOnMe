@@ -9,6 +9,7 @@
 import XCTest
 @testable import CountOnMe
 
+// swiftlint:disable force_cast_bis
 class CalculatorTestCase: XCTestCase {
     // MARK: - Properties
     var calculator: Calculator!

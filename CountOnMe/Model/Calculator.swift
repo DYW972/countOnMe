@@ -56,29 +56,37 @@ class Calculator {
 
     /// Add operator for calculation
     func addOpertorForCalculation(operator symbol: String) -> Bool {
-        print(elements)
-        if canAddOperator {
-            if expressionHaveResult {
-                screenText = elements.last!
-            }
-            screenText.append(" \(symbol) ")
-            return true
+        guard canAddOperator else {
+            return false
         }
-        return false
+
+        if let lastElement = elements.last, expressionHaveResult {
+            screenText = lastElement
+        }
+
+        screenText.append(" \(symbol) ")
+        return true
     }
 
     /// Make the calculation
+    // swiftlint:disable:next cyclomatic_complexity
     func makeCalculation() -> (validity: Bool, message: String) {
-        if !expressionIsCorrect {
+        guard expressionIsCorrect else {
             return (false, "Veuillez entrer une expression correcte.")
         }
-        if !expressionHaveEnoughElement {
+
+        guard expressionHaveEnoughElement else {
             return (false, "Veuillez démarrer un nouveau calcul.")
         }
-        if expressionHaveResult {
-            screenText = elements.last!
-            return (true, "\(elements.last!)")
+
+        guard !expressionHaveResult else {
+            if let lastElement = elements.last {
+                screenText = lastElement
+                return (true, "\(lastElement)")
+            }
+            return (false, "0")
         }
+
         /// - parameters operationsToReduce: Create local copy of operations
         var operationsToReduce = elements
         /// Iterate over operations while an operand still here
@@ -97,7 +105,11 @@ class Calculator {
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(result)", at: 0)
         }
-        screenText.append(" = \(operationsToReduce.first!)")
+
+        if let operationsToReduceFirst = operationsToReduce.first {
+            screenText.append(" = \(operationsToReduceFirst)")
+        }
+
         return (true, "")
     }
 

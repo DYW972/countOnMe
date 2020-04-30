@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK: - Outlets
+    // swiftlint:disable:next force_cast_bis
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
     // MARK: - Properties
@@ -29,20 +30,23 @@ class ViewController: UIViewController {
         guard let operatorText = sender.title(for: .normal) else {
             return
         }
+
         guard calculator.addOpertorForCalculation(operator: operatorText) else {
             return showAlert(with: "Vous avez déjà ajouté un opérateur.")
         }
+
         textView.text = calculator.screenText
     }
 
     /// Tap equal button
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         let resultStatus = calculator.makeCalculation()
-        if resultStatus.validity {
-            textView.text = calculator.screenText
-        } else {
+
+        guard  resultStatus.validity else {
             return showAlert(with: resultStatus.message)
         }
+
+        textView.text = calculator.screenText
     }
 
     /// Tap AC button
