@@ -14,7 +14,7 @@
 		1FA43BDD224E569A00F565CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA43BDB224E569A00F565CB /* LaunchScreen.storyboard */; };
 		5844672A244CFB8800B79C17 /* CalculatorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58446729244CFB8800B79C17 /* CalculatorTestCase.swift */; };
 		5844672C244D044700B79C17 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844672B244D044700B79C17 /* Calculator.swift */; };
-		584467302450836300B79C17 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5844672F2450836300B79C17 /* .swiftlint.yml */; };
+		58D3145F2456F8E000DAEE4E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 58D3145E2456F8E000DAEE4E /* .swiftlint.yml */; };
 		5BE7D5FC0EFF9324D1CDE631 /* Pods_CountOnMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F15E7475136E824033C36F6 /* Pods_CountOnMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,7 @@
 		58446723244CFB2000B79C17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58446729244CFB8800B79C17 /* CalculatorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTestCase.swift; sourceTree = "<group>"; };
 		5844672B244D044700B79C17 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
-		5844672F2450836300B79C17 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		58D3145E2456F8E000DAEE4E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6F15E7475136E824033C36F6 /* Pods_CountOnMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountOnMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		804D3C625207D75B9D3A18F6 /* Pods-CountOnMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountOnMe.debug.xcconfig"; path = "Target Support Files/Pods-CountOnMe/Pods-CountOnMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +68,7 @@
 		1FA43BC6224E569900F565CB = {
 			isa = PBXGroup;
 			children = (
+				58D3145E2456F8E000DAEE4E /* .swiftlint.yml */,
 				1FA43BD1224E569900F565CB /* CountOnMe */,
 				58446720244CFB2000B79C17 /* CountOnMeTests */,
 				1FA43BD0224E569900F565CB /* Products */,
@@ -89,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				1FA43BDE224E569A00F565CB /* Info.plist */,
-				5844672F2450836300B79C17 /* .swiftlint.yml */,
 				8C3D4757241BAC9B00527755 /* Supporting Files */,
 				8C3D4754241BAC3100527755 /* Model */,
 				8C3D4755241BAC4700527755 /* View */,
@@ -242,7 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				584467302450836300B79C17 /* .swiftlint.yml in Resources */,
+				58D3145F2456F8E000DAEE4E /* .swiftlint.yml in Resources */,
 				1FA43BDD224E569A00F565CB /* LaunchScreen.storyboard in Resources */,
 				1FA43BDA224E569A00F565CB /* Assets.xcassets in Resources */,
 				1FA43BD8224E569900F565CB /* Main.storyboard in Resources */,
@@ -275,7 +275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		E7EFC351C44BF6EF9B33CA46 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
