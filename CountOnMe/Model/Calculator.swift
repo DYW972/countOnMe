@@ -12,7 +12,7 @@ class Calculator {
     // MARK: - Properties
     var screenText = String()
     var elements: [String] {
-       return screenText.split(separator: " ").map { "\($0)" }
+        return screenText.split(separator: " ").map { "\($0)" }
     }
     var canAddOperator: Bool {
         checkValidity()
@@ -21,7 +21,7 @@ class Calculator {
         return screenText.contains("=")
     }
     var expressionIsCorrect: Bool {
-      checkValidity()
+        checkValidity()
     }
     var expressionHaveEnoughElement: Bool {
         return elements.count >= 3
@@ -39,7 +39,7 @@ class Calculator {
     // MARK: - Methods
     /// Check if last element is an operator when equal button is pressed
     func checkValidity() -> Bool {
-      return elements.last != "+" && elements.last != "-" && elements.last != "✗" && elements.last != "÷"
+        return elements.last != "+" && elements.last != "-" && elements.last != "✗" && elements.last != "÷"
     }
 
     /// Add number for calculation
@@ -99,7 +99,12 @@ class Calculator {
             case "+": result = left + right
             case "-": result = left - right
             case "✗": result = left * right
-            case "÷": result = left / right
+            case "÷":
+                if right == 0 {
+                    result = 0
+                } else {
+                    result = left / right
+                }
             default: fatalError("Unknown operator !")
             }
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
